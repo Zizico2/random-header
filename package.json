@@ -6,6 +6,7 @@
   "main": "my-element.js",
   "module": "my-element.js",
   "type": "module",
+  "types": "my-element.d.ts",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
