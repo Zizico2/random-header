@@ -6,6 +6,9 @@
 
 import {LitElement, html, css, TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+
+export class NavigationEvent extends CustomEvent<{href: string}> {}
 
 /**
  * An example element.
@@ -27,21 +30,43 @@ export class MyElement extends LitElement {
     }
   `;
 
-  /**
-   * The name to say "Hello" to.
-   */
-  @property()
-  public navItems = 'World';
-
-  /**
-   * The number of times the button has been clicked.
-   */
-  @property({type: Number})
-  public count = 0;
+  @property({type: Array<NavItem>})
+  public navItems: NavItem[] = [];
 
   public override render(): TemplateResult {
-    return html` <header></header> `;
+    return html`
+      <header>${[html`<div>hi</div>`, html`<div>bye</div>`]}</header>
+    `;
   }
+
+  #navLink(label: string, href: string): TemplateResult {
+    return html`
+      <sl-button
+        variant="text"
+        class="nav-link"
+        href="${href}"
+        @click="${(ev: MouseEvent): void => {
+          if (!ev.ctrlKey) {
+            this.dispatchEvent(
+              new NavigationEvent('navigation', {
+                detail: {href},
+                bubbles: true,
+                composed: true,
+              })
+            );
+            ev.preventDefault();
+            window.history.pushState({}, '', href);
+          }
+        }}"
+        >${label}</sl-button
+      >
+    `;
+  }
+}
+
+export interface NavItem {
+  name: string;
+  href: string;
 }
 
 declare global {
