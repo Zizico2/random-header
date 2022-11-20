@@ -35,7 +35,7 @@ export class MyElement extends LitElement {
 
   public override render(): TemplateResult {
     return html`
-      <header>${[html`<div>hi</div>`, html`<div>bye</div>`]}</header>
+      <header>header</header>
     `;
   }
 
