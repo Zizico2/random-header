@@ -19,9 +19,11 @@ export class MyElement extends LitElement {
   public static override styles = css`
     :host {
       display: block;
-      border: solid 1px gray;
-      padding: 16px;
-      max-width: 800px;
+    }
+    header {
+      width: 100%;
+      height: 10rem;
+      background-color: green;
     }
   `;
 
@@ -29,7 +31,7 @@ export class MyElement extends LitElement {
    * The name to say "Hello" to.
    */
   @property()
-  public name = 'World';
+  public navItems = 'World';
 
   /**
    * The number of times the button has been clicked.
@@ -38,26 +40,7 @@ export class MyElement extends LitElement {
   public count = 0;
 
   public override render(): TemplateResult {
-    return html`
-      <h1>${this.#sayHello(this.name)}!</h1>
-      <button @click=${this.#onClick} part="button">
-        Click Count: ${this.count}
-      </button>
-      <slot></slot>
-    `;
-  }
-
-  #onClick(): void {
-    this.count++;
-    this.dispatchEvent(new CustomEvent('count-changed'));
-  }
-
-  /**
-   * Formats a greeting
-   * @param name The name to say "Hello" to
-   */
-  #sayHello(name: string): string {
-    return `Hello, ${name}`;
+    return html` <header></header> `;
   }
 }
 

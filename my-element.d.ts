@@ -12,12 +12,11 @@ import { LitElement, TemplateResult } from 'lit';
  * @csspart button - The button
  */
 export declare class MyElement extends LitElement {
-    #private;
     static styles: import("lit").CSSResult;
     /**
      * The name to say "Hello" to.
      */
-    name: string;
+    navItems: string;
     /**
      * The number of times the button has been clicked.
      */
