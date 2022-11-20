@@ -35,10 +35,10 @@ export class MyElement extends LitElement {
 
   public override render(): TemplateResult {
     return html`
-      <header>header</header>
+      <header>${[html`<div>hi</div>`, html`<div>bye</div>`]}</header>
     `;
   }
-
+  /*
   #navLink(label: string, href: string): TemplateResult {
     return html`
       <sl-button
@@ -62,7 +62,9 @@ export class MyElement extends LitElement {
       >
     `;
   }
+  */
 }
+
 
 export interface NavItem {
   name: string;

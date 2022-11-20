@@ -4,6 +4,11 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 import { LitElement, TemplateResult } from 'lit';
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+export declare class NavigationEvent extends CustomEvent<{
+    href: string;
+}> {
+}
 /**
  * An example element.
  *
@@ -13,15 +18,12 @@ import { LitElement, TemplateResult } from 'lit';
  */
 export declare class MyElement extends LitElement {
     static styles: import("lit").CSSResult;
-    /**
-     * The name to say "Hello" to.
-     */
-    navItems: string;
-    /**
-     * The number of times the button has been clicked.
-     */
-    count: number;
+    navItems: NavItem[];
     render(): TemplateResult;
+}
+export interface NavItem {
+    name: string;
+    href: string;
 }
 declare global {
     interface HTMLElementTagNameMap {

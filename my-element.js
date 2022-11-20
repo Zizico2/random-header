@@ -11,6 +11,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+export class NavigationEvent extends CustomEvent {
+}
 /**
  * An example element.
  *
@@ -21,17 +24,37 @@ import { customElement, property } from 'lit/decorators.js';
 let MyElement = class MyElement extends LitElement {
     constructor() {
         super(...arguments);
-        /**
-         * The name to say "Hello" to.
-         */
-        this.navItems = 'World';
-        /**
-         * The number of times the button has been clicked.
-         */
-        this.count = 0;
+        this.navItems = [];
+        /*
+        #navLink(label: string, href: string): TemplateResult {
+          return html`
+            <sl-button
+              variant="text"
+              class="nav-link"
+              href="${href}"
+              @click="${(ev: MouseEvent): void => {
+                if (!ev.ctrlKey) {
+                  this.dispatchEvent(
+                    new NavigationEvent('navigation', {
+                      detail: {href},
+                      bubbles: true,
+                      composed: true,
+                    })
+                  );
+                  ev.preventDefault();
+                  window.history.pushState({}, '', href);
+                }
+              }}"
+              >${label}</sl-button
+            >
+          `;
+        }
+        */
     }
     render() {
-        return html ` <header></header> `;
+        return html `
+      <header>${[html `<div>hi</div>`, html `<div>bye</div>`]}</header>
+    `;
     }
 };
 MyElement.styles = css `
@@ -45,11 +68,8 @@ MyElement.styles = css `
     }
   `;
 __decorate([
-    property()
+    property({ type: (Array) })
 ], MyElement.prototype, "navItems", void 0);
-__decorate([
-    property({ type: Number })
-], MyElement.prototype, "count", void 0);
 MyElement = __decorate([
     customElement('my-element')
 ], MyElement);
