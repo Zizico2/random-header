@@ -36,7 +36,6 @@ let MyElement = class MyElement extends LitElement {
         this._current_href = window.location.pathname;
     }
     updateIndicator() {
-        // TODO: think about this
         this._current_href = window.location.pathname;
     }
     render() {
@@ -67,8 +66,8 @@ let MyElement = class MyElement extends LitElement {
             ${navItemsTemplate}
           </ul>
         </nav>
-        <sl-button variant="text" id="logo" href="/demo">
-          <img src="https://placeholder.pics/svg/80x50" alt="Foresight Logo" />
+        <sl-button variant="text" id="logo" href="${this.logo_href}">
+          <slot name="logo"></slot>
         </sl-button>
       </header>
     `;
@@ -186,6 +185,9 @@ MyElement.styles = [
 __decorate([
     property({ type: (Array) })
 ], MyElement.prototype, "navItems", void 0);
+__decorate([
+    property({ type: String })
+], MyElement.prototype, "logo_href", void 0);
 __decorate([
     state()
 ], MyElement.prototype, "_current_href", void 0);

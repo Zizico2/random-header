@@ -44,6 +44,15 @@
             },
             {
               "kind": "field",
+              "name": "logo_href",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "public",
+              "attribute": "logo_href"
+            },
+            {
+              "kind": "field",
               "name": "_current_href",
               "type": {
                 "text": "string"
@@ -98,6 +107,13 @@
               },
               "default": "[]",
               "fieldName": "navItems"
+            },
+            {
+              "name": "logo_href",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "logo_href"
             }
           ],
           "superclass": {

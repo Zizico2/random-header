@@ -122,11 +122,13 @@ export class MyElement extends LitElement {
   @property({type: Array<NavItem>})
   public navItems: NavItem[] = [];
 
+  @property({type: String})
+  public logo_href!: string;
+
   @state()
   private _current_href: string = window.location.pathname;
 
   public updateIndicator(): void {
-    // TODO: think about this
     this._current_href = window.location.pathname;
   }
 
@@ -160,8 +162,8 @@ export class MyElement extends LitElement {
             ${navItemsTemplate}
           </ul>
         </nav>
-        <sl-button variant="text" id="logo" href="/demo">
-          <img src="https://placeholder.pics/svg/80x50" alt="Foresight Logo" />
+        <sl-button variant="text" id="logo" href="${this.logo_href}">
+          <slot name="logo"></slot>
         </sl-button>
       </header>
     `;

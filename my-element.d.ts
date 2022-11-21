@@ -20,6 +20,7 @@ export declare class MyElement extends LitElement {
     #private;
     static styles: import("lit").CSSResult[];
     navItems: NavItem[];
+    logo_href: string;
     private _current_href;
     updateIndicator(): void;
     render(): TemplateResult;
