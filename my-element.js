@@ -35,12 +35,8 @@ let MyElement = class MyElement extends LitElement {
         this.navItems = [];
         this._current_href = window.location.pathname;
     }
-    updated(changedProperties) {
-        if (changedProperties.has('_current_href')) {
-            //history.pushState({}, '', this._current_href);
-        }
-    }
     updateIndicator() {
+        // TODO: think about this
         this._current_href = window.location.pathname;
     }
     render() {
@@ -79,7 +75,7 @@ let MyElement = class MyElement extends LitElement {
     }
 };
 _MyElement_instances = new WeakSet(), _MyElement_onClickNavLink = function _MyElement_onClickNavLink(ev) {
-    if (!ev.ctrlKey) {
+    if (!ev.ctrlKey && !ev.altKey && !ev.shiftKey && !ev.metaKey) {
         ev.preventDefault();
         this._current_href = ev.target.href;
         this.dispatchEvent(new NavigationEvent('navigation', {
@@ -93,13 +89,10 @@ MyElement.styles = [
     css `
       :host {
         display: block;
+        box-sizing: border-box;
       }
       sl-button::part(base) {
         border: none;
-      }
-      #menu-button::part(base) {
-        background-color: rgba(0, 0, 0, 0.2);
-        color: white;
       }
       *,
       *::before,
@@ -112,17 +105,31 @@ MyElement.styles = [
       ul {
         display: contents;
       }
+
       header {
+        --horizontal-padding: 3.5rem;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding-left: 3.5rem;
-        padding-right: 3.5rem;
+        padding-left: var(--horizontal-padding);
+        padding-right: var(--horizontal-padding);
         align-items: center;
         width: 100%;
         height: 5rem;
         background-color: var(--header-background, var(--brand-color, red));
       }
+
+      nav {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+
+      #menu-button::part(base) {
+        background-color: rgba(0, 0, 0, 0.2);
+        color: white;
+      }
+
       .nav-link {
         width: 100%;
         height: 100%;
@@ -134,8 +141,9 @@ MyElement.styles = [
         color: white;
       }
       .nav-link::part(base) {
-        padding-left: 2rem;
-        padding-right: 2rem;
+        --horizontal-padding: 2rem;
+        padding-left: var(--horizontal-padding);
+        padding-right: var(--horizontal-padding);
         display: flex;
         place-items: center;
         place-content: center;
@@ -148,12 +156,6 @@ MyElement.styles = [
         transition: none;
         border-color: yellow;
         outline: none;
-      }
-
-      nav {
-        height: 100%;
-        display: flex;
-        flex-direction: row;
       }
       #logo::part(base) {
         width: fit-content;
@@ -169,11 +171,12 @@ MyElement.styles = [
         position: relative;
       }
       .indicator {
+        --indicator-width: 75%;
         visibility: hidden;
         position: absolute;
         background-color: white;
-        width: 75%;
-        left: 12.5%;
+        width: var(--indicator-width);
+        left: calc((100% - var(--indicator-width)) / 2);
         height: 5px;
         border-radius: 2px;
         bottom: 4px;

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import {LitElement, html, css, TemplateResult, PropertyValues} from 'lit';
+import {LitElement, html, css, TemplateResult} from 'lit';
 import {customElement, property, state} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
