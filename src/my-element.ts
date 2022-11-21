@@ -123,7 +123,7 @@ export class MyElement extends LitElement {
   public navItems: NavItem[] = [];
 
   @property({type: String})
-  public logo_href!: string;
+  public logoHref!: string;
 
   @state()
   private _current_href: string = window.location.pathname;
@@ -162,7 +162,7 @@ export class MyElement extends LitElement {
             ${navItemsTemplate}
           </ul>
         </nav>
-        <sl-button variant="text" id="logo" href="${this.logo_href}">
+        <sl-button variant="text" id="logo" href="${this.logoHref}">
           <slot name="logo"></slot>
         </sl-button>
       </header>
