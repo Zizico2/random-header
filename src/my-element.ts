@@ -120,7 +120,7 @@ export class MyElement extends LitElement {
 
   protected override updated(changedProperties: PropertyValues): void {
     if (changedProperties.has('_current_href')) {
-      history.pushState({}, '', this._current_href);
+      //history.pushState({}, '', this._current_href);
     }
   }
 

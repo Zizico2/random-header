@@ -37,7 +37,7 @@ let MyElement = class MyElement extends LitElement {
     }
     updated(changedProperties) {
         if (changedProperties.has('_current_href')) {
-            history.pushState({}, '', this._current_href);
+            //history.pushState({}, '', this._current_href);
         }
     }
     updateIndicator() {
