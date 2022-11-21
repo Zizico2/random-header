@@ -41,9 +41,50 @@
               "privacy": "public",
               "default": "[]",
               "attribute": "navItems"
+            },
+            {
+              "kind": "field",
+              "name": "_current_href",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateIndicator",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "#onClickNavLink",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
             }
           ],
           "events": [
+            {
+              "name": "navigation",
+              "type": {
+                "text": "NavigationEvent"
+              }
+            },
             {
               "description": "Indicates when the count changes",
               "name": "count-changed"

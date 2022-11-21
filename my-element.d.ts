@@ -3,7 +3,7 @@
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-import { LitElement, TemplateResult } from 'lit';
+import { LitElement, TemplateResult, PropertyValues } from 'lit';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 export declare class NavigationEvent extends CustomEvent<{
     href: string;
@@ -17,12 +17,16 @@ export declare class NavigationEvent extends CustomEvent<{
  * @csspart button - The button
  */
 export declare class MyElement extends LitElement {
-    static styles: import("lit").CSSResult;
+    #private;
+    static styles: import("lit").CSSResult[];
     navItems: NavItem[];
+    private _current_href;
+    protected updated(changedProperties: PropertyValues): void;
+    updateIndicator(): void;
     render(): TemplateResult;
 }
 export interface NavItem {
-    name: string;
+    label: string;
     href: string;
 }
 declare global {
