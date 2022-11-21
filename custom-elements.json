@@ -44,12 +44,12 @@
             },
             {
               "kind": "field",
-              "name": "logo_href",
+              "name": "logoHref",
               "type": {
                 "text": "string"
               },
               "privacy": "public",
-              "attribute": "logo_href"
+              "attribute": "logoHref"
             },
             {
               "kind": "field",
@@ -109,11 +109,11 @@
               "fieldName": "navItems"
             },
             {
-              "name": "logo_href",
+              "name": "logoHref",
               "type": {
                 "text": "string"
               },
-              "fieldName": "logo_href"
+              "fieldName": "logoHref"
             }
           ],
           "superclass": {

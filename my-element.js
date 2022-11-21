@@ -66,7 +66,7 @@ let MyElement = class MyElement extends LitElement {
             ${navItemsTemplate}
           </ul>
         </nav>
-        <sl-button variant="text" id="logo" href="${this.logo_href}">
+        <sl-button variant="text" id="logo" href="${this.logoHref}">
           <slot name="logo"></slot>
         </sl-button>
       </header>
@@ -187,7 +187,7 @@ __decorate([
 ], MyElement.prototype, "navItems", void 0);
 __decorate([
     property({ type: String })
-], MyElement.prototype, "logo_href", void 0);
+], MyElement.prototype, "logoHref", void 0);
 __decorate([
     state()
 ], MyElement.prototype, "_current_href", void 0);
